@@ -1,6 +1,3 @@
-FROM ubuntu:latest
+FROM nginx
 MAINTAINER yury
-COPY index.html home/index.html
-CMD ["./index.html"]
-
-
+COPY index.html /usr/share/nginx/html/index.html

@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    
+    stages {
+        
+        
+        
+        stage('build') {
+            steps {
+                
+                sh 'docker build -t internshiptest1 .'
+                }
+        }
+        stage('run'){
+            steps{
+                sh 'docker stop internship || true'
+                sh 'docker run --rm --name internship -d -p 80:80 internshiptest1' 
+            }
+        }
+    }
+}
